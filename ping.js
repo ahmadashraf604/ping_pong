@@ -218,6 +218,7 @@ $(document).ready(function () {
             $("#ball").css({ 'left': ballX + (speed * x) + 'px', 'top': ballY + (speed * y) + 'px' });
             if (player1Score == 10 || player2Score == 10) {
                 speed *= 2;
+                setTimeout(moveBall, 20);
             } else if (player1Score == 20) {
                 $("#_win").css({ display: "inline" });
                 $("#_winName").text(p1Name + " win");
