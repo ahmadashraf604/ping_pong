@@ -31,8 +31,7 @@ $(document).ready(function () {
         }
     }
     function startPlaying() {
-        if($("#container"))
-        {
+        if ($("#container")) {
             $("#container").remove();
             var con = document.createElement("div");
             con.setAttribute("id", "container");
@@ -181,11 +180,11 @@ $(document).ready(function () {
         var winner = document.createElement("div");
         winner.setAttribute("id", "_win");
         table.append(winner);
-        var winnerName =document.createElement("span");
-        winnerName.setAttribute("id","_winName");
+        var winnerName = document.createElement("span");
+        winnerName.setAttribute("id", "_winName");
         winner.append(winnerName);
-        var playAgainBtn =document.createElement("div");
-        playAgainBtn.setAttribute("id","playAgainBtn");
+        var playAgainBtn = document.createElement("div");
+        playAgainBtn.setAttribute("id", "playAgainBtn");
         winner.append(playAgainBtn);
         $("#playAgainBtn").text("play again");
         $("#playAgainBtn").click(startPlaying);
@@ -217,11 +216,13 @@ $(document).ready(function () {
             }
             //change position of ball
             $("#ball").css({ 'left': ballX + (speed * x) + 'px', 'top': ballY + (speed * y) + 'px' });
-            if (player1Score == 10) {
-                $("#_win").css({display : "inline"});
+            if (player1Score == 10 || player2Score == 10) {
+                speed *= 2;
+            } else if (player1Score == 20) {
+                $("#_win").css({ display: "inline" });
                 $("#_winName").text(p1Name + " win");
-            } else if (player2Score == 10) {
-                $("#_win").css({display : "inline"});
+            } else if (player2Score == 20) {
+                $("#_win").css({ display: "inline" });
                 $("#_winName").text(p2Name + " win");
             } else {
                 setTimeout(moveBall, 20);
