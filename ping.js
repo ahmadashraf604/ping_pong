@@ -224,8 +224,11 @@ $(document).ready(function () {
                 $("#_win").css({ display: "inline" });
                 $("#_winName").text(p2Name + " win");
             } else {
-                if ((player1Score == 10 && speed ==5) || (player2Score == 10 && speed == 5))
-                    speed *= 2;
+                if (player1Score == 10 && speed == 5)
+                    speed += 3;
+                else if (player2Score == 10 && speed == 5)
+                    speed += 3
+
                 setTimeout(moveBall, 20);
             }
         })()
